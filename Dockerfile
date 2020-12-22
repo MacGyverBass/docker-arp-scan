@@ -7,7 +7,8 @@ RUN	apk --no-cache add	\
 		automake	\
 		g++	\
 		libpcap-dev	\
-		make
+		make	\
+		upx
 
 # Directory used for downloading/extracting/compiling
 WORKDIR	/arp-scan/
@@ -26,6 +27,9 @@ RUN	make
 
 # Strip binary
 RUN	strip -s arp-scan
+
+# Compress the binary
+RUN	upx -9 arp-scan
 
 
 # Build from scratch for smallest build size
