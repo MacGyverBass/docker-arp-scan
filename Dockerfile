@@ -1,5 +1,5 @@
 # Image used for compiling the binary
-FROM	alpine:3.12 AS compile
+FROM	alpine:3.13 AS compile
 
 # Packages used for compiling
 RUN	apk --no-cache add	\
