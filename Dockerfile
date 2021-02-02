@@ -1,5 +1,5 @@
 # Image used for compiling the binary
-FROM	alpine:3.13 AS compile
+FROM	macgyverbass/base-label:alpine AS compile
 
 # Packages used for compiling
 RUN	apk --no-cache add	\
@@ -33,7 +33,7 @@ RUN	upx -9 arp-scan
 
 
 # Build from scratch for smallest build size
-FROM	scratch
+FROM	macgyverbass/base-label:scratch
 
 # Copy compiled binary and other necessary files
 COPY	--from=compile	\
